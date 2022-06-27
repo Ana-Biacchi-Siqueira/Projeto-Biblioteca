@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\ana.siqueira\Documents\Projetos pessoais\Biblioteca\.metadata\.plugins\org.eclipse.jdt.core
+4075161072.index
+4020415899.index
