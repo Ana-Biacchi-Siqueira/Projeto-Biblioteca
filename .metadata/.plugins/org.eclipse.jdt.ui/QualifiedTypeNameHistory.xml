@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotEmpty"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.entities.AutorEntity"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.converts.AutorConvert"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.controllers.dto.AutorOutput"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.controllers.dto.AutorInput"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.repositories.LivroRepository"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.services.AutorService"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.services.LivroService"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.converts.LivroConvert"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.controllers.dto.LivroOutput"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.entities.LivroEntity"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.controllers.dto.LivroInput"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.controllers.dto.BiografiaInput"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.entities.BiografiaEntity"/>
+    <fullyQualifiedTypeName name="br.com.biblioteca.controllers.dto.BiografiaOutput"/>
+</qualifiedTypeNameHistroy>
