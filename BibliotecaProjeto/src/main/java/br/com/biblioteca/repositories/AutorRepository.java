@@ -1,13 +1,11 @@
 package br.com.biblioteca.repositories;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import br.com.biblioteca.entities.Autor;
+import br.com.biblioteca.entities.AutorEntity;
 
-public interface AutorRepository extends JpaRepository<Autor, Long> {
-
-	List<Autor> findByAutorBiografia(String autorBiografia);
+@Repository
+public interface AutorRepository extends JpaRepository<AutorEntity, Long> {
 
 }

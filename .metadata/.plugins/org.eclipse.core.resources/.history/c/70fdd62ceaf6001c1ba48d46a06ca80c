@@ -1,0 +1,53 @@
+package br.com.biblioteca.controllers;
+import java.net.URI;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import br.com.biblioteca.controllers.dto.BibliotecaDto;
+import br.com.biblioteca.controllers.form.BibliotecaForm;
+import br.com.biblioteca.entities.Autor;
+import br.com.biblioteca.repositories.AutorRepository;
+import br.com.biblioteca.repositories.BiografiaRepository;
+import br.com.biblioteca.repositories.LivrosRepository;
+
+@RestController
+@RequestMapping("/autores")
+public class BibliotecaController {
+	
+	@Autowired
+	private AutorRepository autorRepository;
+	
+	@Autowired
+	private BiografiaRepository biografiaRepository;
+	
+	@GetMapping
+	public List<BibliotecaDto> lista(String autorBiografia) {
+		if (autorBiografia == null) {
+			List<Autor> autores = autorRepository.findAll();
+			return BibliotecaDto.converter(autores);
+		} else {
+			List<Autor> autores = autorRepository.findByAutorBiografia(autorBiografia);
+			return BibliotecaDto.converter(autores);
+		}
+	}
+	
+	@PostMapping
+	public ResponseEntity<BibliotecaDto> cadastrar(@RequestBody @Valid BibliotecaForm form, UriComponentsBuilder uriBuilder) {
+		Autor autor = form.converter(nomeAutor);
+		autorRepository.save(autor);
+		
+		URI uri = uriBuilder.path("/autores/{id}").buildAndExpand(autor.getId()).toUri();
+		return ResponseEntity.created(uri).body(new BibliotecaDto(autor));
+	}
+
+}
