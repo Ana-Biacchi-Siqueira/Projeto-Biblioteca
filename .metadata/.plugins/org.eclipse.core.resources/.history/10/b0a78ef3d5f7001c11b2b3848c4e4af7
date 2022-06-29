@@ -1,0 +1,42 @@
+package br.com.biblioteca.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.biblioteca.entities.LivroEntity;
+import br.com.biblioteca.repositories.LivroRepository;
+
+	@Service
+		public class LivroService {
+
+	@Autowired
+		private LivroRepository livroRepository;
+
+		public LivroEntity cria(LivroEntity livroEntity) {
+			return livroRepository.save(livroEntity);
+	}
+
+		public List<LivroEntity> buscaLivrosPeloIdAutor(Long id) {
+			return livroRepository.findAllByAutoresId(id);
+	}
+
+		public LivroEntity buscaLivroPeloId(Long id) {
+			return livroRepository.findById(id)
+				.orElseThrow(() -> new NotFoundException(String.format("Livro %d não encontrado", id));
+	}
+
+		public List<LivroEntity> listaTodos() {
+			return livroRepository.findAll();
+	}
+		public LivroEntity altera(LivroEntity livroEntity) {
+			return livroRepository.save(livroEntity);
+	}
+		public void remove(LivroEntity livroLocalizado) {
+			livroRepository.delete(livroLocalizado);
+	}
+
+
+
+}

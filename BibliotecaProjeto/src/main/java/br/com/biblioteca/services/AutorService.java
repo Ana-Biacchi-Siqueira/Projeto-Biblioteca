@@ -22,8 +22,11 @@ import br.com.biblioteca.repositories.AutorRepository;
 		public AutorEntity altera(AutorEntity autorEntity) {
 		return autorRepository.save(autorEntity);
 	}
+		
+		public AutorEntity cadastraBio(AutorEntity bioEntity) {
+			return autorRepository.save(bioEntity); }
 
-		public AutorEntity listarPorId(Long id) {
+		public AutorEntity listarPeloId(Long id) {
 		Optional<AutorEntity> localizou = autorRepository.findById(id);
 		if (localizou.isPresent()) {
 			return localizou.get();}

@@ -1,0 +1,18 @@
+package br.com.biblioteca.repositories;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import br.com.biblioteca.entities.LivroEntity;
+
+@Repository
+public interface LivroRepository extends JpaRepository<LivroEntity, Long> {
+
+	Optional<LivroEntity> findById(Long id);  
+
+	List<LivroEntity> findAllByAutoresIds(Long id);
+
+}

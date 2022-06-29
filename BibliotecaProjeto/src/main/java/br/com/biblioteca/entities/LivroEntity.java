@@ -23,7 +23,7 @@ import lombok.Setter;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	//@Column(name = "id")
 		private Long id;
 
 	@Column(name = "titulo", length = 200)
@@ -32,8 +32,9 @@ import lombok.Setter;
 	@Column(name = "ano_de_lancamento", columnDefinition = "integer(4)")
 		private Integer anoDeLancamento;
 
-	@JoinColumn(name = "autor_id")
-	@ManyToMany
+	//@JoinColumn(name = "autor_id")
+	
 	@JoinTable(name = "table_livros_autores", joinColumns = @JoinColumn(name = "livro_id"), inverseJoinColumns = @JoinColumn(name = "autor_id"))
+		@ManyToMany
 		private List<AutorEntity> autores;
 }

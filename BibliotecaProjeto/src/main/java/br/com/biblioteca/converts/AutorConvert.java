@@ -11,9 +11,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.biblioteca.controllers.dto.AutorInput;
 import br.com.biblioteca.controllers.dto.AutorOutput;
-import br.com.biblioteca.controllers.dto.BiografiaInput;
 import br.com.biblioteca.entities.AutorEntity;
-import br.com.biblioteca.entities.BiografiaEntity;
 
 	@Component
 		public class AutorConvert {
@@ -21,13 +19,14 @@ import br.com.biblioteca.entities.BiografiaEntity;
 	@Autowired
 		private ModelMapper modelMapper;
 
-		public BiografiaEntity inputToNewEntity(@Valid BiografiaInput biografiaInput) {
-		return modelMapper.map(biografiaInput, BiografiaEntity.class); }
-	
+		
 		public AutorEntity inputToNewEntity(@Valid AutorInput autorInput) {
 			return modelMapper.map(autorInput, AutorEntity.class);
 	}
 
+		public AutorEntity inputToNewEntity2(@Valid AutorInput bioInput) {
+		return modelMapper.map(bioInput, AutorEntity.class); }
+		
 		public AutorOutput entityToOutput(AutorEntity autorEntity) {
 			return modelMapper.map(autorEntity, AutorOutput.class);
 	}

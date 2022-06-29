@@ -39,29 +39,28 @@ public class LivroController {
 	}
 	
 	@PutMapping("/{id}")
-		public LivroOutput altera(@PathVariable Long id, @RequestBody @Valid Livro Input livroInput) {
-			LivroEntity localizaLivro = livroService.buscarLivroPorId(id);
+		public LivroOutput altera(@PathVariable Long id, @RequestBody @Valid LivroInput livroInput) {
+			LivroEntity localizaLivro = livroService.buscaLivrosPeloId(id);
 			livroConvert.copyInputToEntity(localizaLivro, livroInput);
-			LivroEntity livroAlterado = autorService.altera(localizaLivro);
+			LivroEntity livroAlterado = livroService.altera(localizaLivro);
 		return livroConvert.entityToOutput(livroAlterado); 
-		
 	}
 	
 	@GetMapping
-		public List<LivroOutput> listarTodosLivros() {
-		    List<LivroEntity> listarTodosLivros = livroService.listarTodosLivros();
-		return livroConvert.entityToOutput(listarTodosLivros);
+		public List<LivroOutput> listaTodosLivros() {
+		    List<LivroEntity> listaTodosLivros = livroService.listaTodosLivros();
+		return livroConvert.entityToOutput(listaTodosLivros);
 			}
 	
 	@GetMapping("/{id}")
 		public LivroOutput buscarPorId(@PathVariable Long id) {
-			LivroEntity localizaLivro = livroService.buscarLivroPorId(id);
+			LivroEntity localizaLivro = livroService.buscaLivrosPeloId(id);
 		return livroConvert.entityToOutput(localizaLivro);
 		
 	}
 		
 	@DeleteMapping("/{id}")
 		public void remove(@PathVariable Long id) {
-			LivroEntity localizaLivro = livroService.buscaLivroPorId(id);
+			LivroEntity localizaLivro = livroService.buscaLivrosPeloId(id);
 			livroService.remove(localizaLivro);
-	}
+	}}
