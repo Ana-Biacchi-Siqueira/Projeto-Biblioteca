@@ -25,4 +25,7 @@ import lombok.Setter;
 	@Column(name="nome")
 		private String nome;
 	
+	@Column(name="biografia")
+	private String biografia;
+	
 }

@@ -3,10 +3,12 @@ package br.com.biblioteca.controllers.dto;
 import java.util.List;
 
 import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import br.com.biblioteca.entities.AutorEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,7 +24,7 @@ import lombok.Setter;
 	@NotNull(message = "Ano de lançamento dos livros é obrigatório.")
 		private Integer anoDeLancamento;
 	
-	@NotNull(message = "Todos livros devem haver ao menos um autor.")
-		private List<Long> idsAutores;	
+	@NotEmpty(message = "Todos livros devem haver ao menos um autor.")
+		private List<Long> IdsAutores;	
 
 }
